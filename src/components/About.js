@@ -5,7 +5,7 @@ const About = () => {
     <section id="about">
       <h2>About Me</h2>
       <p>
-        I am a passionate and self-motivated student pursuing an MCA, with hands-on experience in building applications and bots using Python, APIs, and machine learning models. I have a strong foundation in Java and the MERN stack, and I enjoy creating functional applications by leveraging online resources.
+      I’m Atul Sharma, an Aspiring Full Stack Developer with a solid foundation in web development and a keen focus on building scalable applications. While I have experience with the MERN stack, my recent projects have honed my skills in Python, Django, React, and Node.js. Currently pursuing my MCA, I’m passionate about developing innovative solutions — ranging from dynamic web applications to AI-powered tools—that make a real impact. I thrive on tackling new challenges and continuously expanding my technical expertise, always eager to bring creative ideas to life through code.
       </p>
     </section>
   );

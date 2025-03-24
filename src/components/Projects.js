@@ -14,7 +14,15 @@ const Projects = () => {
       <div>
         <h3>Book Summarizer and Recommendation App</h3>
         <p>
-          Built an AI-powered web application using JavaScript, Python, and Machine Learning algorithms.
+          Built an AI-powered web application using JavaScript, Python, Django and Machine Learning algorithms.
+        </p>
+        <h3>CodeAssist</h3>
+        <p>
+            Built an AI Coding Assistant web application using python, Django, Mistral 7b (with 4 bit Quantization), Gemini-1.5-pro and React.
+        </p>
+        <h3>Chess Bot</h3>
+        <p>
+            Developed a Discord Chess Bot Using Python and Stockfish-API.
         </p>
       </div>
     </section>
