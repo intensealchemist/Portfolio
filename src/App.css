@@ -64,6 +64,92 @@ body {
   }
 }
 
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes floatSlow {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Scroll Progress Bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent), var(--purple));
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  z-index: 100;
+  transition: width 0.1s ease-out;
+}
+
 .App {
   max-width: 1120px;
   margin: 0 auto;
@@ -103,6 +189,7 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   transition: all 0.3s ease;
+  animation: floatSlow 6s ease-in-out infinite;
 }
 
 .brand:hover {
@@ -168,6 +255,14 @@ body {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+}
+
+.hero-card:first-child {
+  animation: slideInLeft 0.8s ease;
+}
+
+.hero-card:last-child {
+  animation: slideInRight 0.8s ease;
 }
 
 .hero-card::before {
@@ -372,6 +467,39 @@ section {
   cursor: default;
   position: relative;
   overflow: hidden;
+  animation: fadeInScale 0.5s ease backwards;
+}
+
+.badge:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.badge:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.badge:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.badge:nth-child(4) {
+  animation-delay: 0.25s;
+}
+
+.badge:nth-child(5) {
+  animation-delay: 0.3s;
+}
+
+.badge:nth-child(6) {
+  animation-delay: 0.35s;
+}
+
+.badge:nth-child(7) {
+  animation-delay: 0.4s;
+}
+
+.badge:nth-child(8) {
+  animation-delay: 0.45s;
 }
 
 .badge::before {
@@ -415,6 +543,23 @@ section {
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(10px);
+  animation: fadeInUp 0.6s ease backwards;
+}
+
+.card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.card:nth-child(4) {
+  animation-delay: 0.4s;
 }
 
 .card::before {
