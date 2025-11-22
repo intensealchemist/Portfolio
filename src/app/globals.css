@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --bg: #0a0e27;
   --bg-soft: #0f172a;
@@ -29,18 +33,13 @@
 }
 
 html,
-body,
-#root {
+body {
   height: 100%;
-}
-
-html {
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color: var(--text);
   background:
     radial-gradient(circle at 20% 50%, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
@@ -192,6 +191,78 @@ body::after {
   }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes borderSlide {
+
+  0%,
+  100% {
+    transform: translateX(-10px);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: translateX(10px);
+    opacity: 1;
+  }
+}
+
+@keyframes expandLine {
+
+  0%,
+  100% {
+    width: 60px;
+    opacity: 1;
+  }
+
+  50% {
+    width: 80px;
+    opacity: 0.7;
+  }
+}
+
+@keyframes waveGradient {
+  0% {
+    background-position: 0% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes rotateBorder {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
 /* Scroll Progress Bar */
 .scroll-progress {
   position: fixed;
@@ -204,7 +275,7 @@ body::after {
   transition: width 0.1s ease-out;
 }
 
-.App {
+.app-container {
   max-width: 1120px;
   margin: 0 auto;
   padding: 24px;
@@ -213,7 +284,7 @@ body::after {
 }
 
 /* Floating Shapes */
-.App::before {
+.app-container::before {
   content: '';
   position: fixed;
   top: 10%;
@@ -227,7 +298,7 @@ body::after {
   pointer-events: none;
 }
 
-.App::after {
+.app-container::after {
   content: '';
   position: fixed;
   bottom: 15%;
@@ -265,7 +336,6 @@ body::after {
 }
 
 .brand {
-  font-family: "Poppins", system-ui, sans-serif;
   font-weight: 700;
   font-size: 20px;
   letter-spacing: -0.5px;
@@ -318,18 +388,6 @@ body::after {
   animation: fadeInUp 0.6s ease;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .hero-card {
   background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(10, 14, 39, 0.6) 100%);
   border: 1px solid rgba(148, 163, 184, 0.2);
@@ -361,20 +419,6 @@ body::after {
   animation: borderSlide 3s ease-in-out infinite;
 }
 
-@keyframes borderSlide {
-
-  0%,
-  100% {
-    transform: translateX(-10px);
-    opacity: 0.5;
-  }
-
-  50% {
-    transform: translateX(10px);
-    opacity: 1;
-  }
-}
-
 .hero-card:hover {
   transform: translateY(-4px);
   border-color: rgba(59, 130, 246, 0.4);
@@ -390,20 +434,7 @@ body::after {
   animation: shimmer 3s ease-in-out infinite;
 }
 
-@keyframes shimmer {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.7;
-  }
-}
-
 .hero h1 {
-  font-family: "Poppins", system-ui, sans-serif;
   font-size: clamp(32px, 4.5vw, 52px);
   line-height: 1.15;
   margin: 16px 0 12px;
@@ -504,7 +535,6 @@ section {
 }
 
 .section-title {
-  font-family: "Poppins", system-ui, sans-serif;
   font-size: clamp(24px, 3vw, 36px);
   margin: 0 0 8px;
   font-weight: 700;
@@ -525,20 +555,6 @@ section {
   background: linear-gradient(90deg, var(--primary), var(--accent));
   border-radius: 2px;
   animation: expandLine 2s ease-in-out infinite;
-}
-
-@keyframes expandLine {
-
-  0%,
-  100% {
-    width: 60px;
-    opacity: 1;
-  }
-
-  50% {
-    width: 80px;
-    opacity: 0.7;
-  }
 }
 
 .section-sub {
@@ -575,16 +591,6 @@ section {
       transparent 100%);
   background-size: 200% 100%;
   animation: waveGradient 4s linear infinite;
-}
-
-@keyframes waveGradient {
-  0% {
-    background-position: 0% 0;
-  }
-
-  100% {
-    background-position: 200% 0;
-  }
 }
 
 .panel:hover {
@@ -736,16 +742,6 @@ section {
   transition: opacity 0.4s ease;
   animation: rotateBorder 8s linear infinite;
   pointer-events: none;
-}
-
-@keyframes rotateBorder {
-  0% {
-    filter: hue-rotate(0deg);
-  }
-
-  100% {
-    filter: hue-rotate(360deg);
-  }
 }
 
 .card:hover::after {
@@ -904,7 +900,7 @@ section {
 }
 
 @media (max-width: 640px) {
-  .App {
+  .app-container {
     padding: 16px;
   }
 

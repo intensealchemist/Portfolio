@@ -13,7 +13,7 @@ const Skills = () => {
               <span className="badge">Java</span>
               <span className="badge">Python</span>
               <span className="badge">JavaScript</span>
-              <span className="badge">Node.js</span>
+              <span className="badge">TypeScript</span>
             </div>
           </div>
           <div>
