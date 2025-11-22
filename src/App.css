@@ -50,6 +50,60 @@ body {
   background-attachment: fixed;
   line-height: 1.6;
   overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+    radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.03) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px, 80px 80px, 100px 100px;
+  animation: patternMove 60s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    linear-gradient(45deg, transparent 48%, rgba(59, 130, 246, 0.02) 50%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, rgba(168, 85, 247, 0.02) 50%, transparent 52%);
+  background-size: 100px 100px;
+  animation: gridMove 40s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes patternMove {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+@keyframes gridMove {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes gradient-shift {
@@ -154,6 +208,37 @@ body {
   max-width: 1120px;
   margin: 0 auto;
   padding: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Floating Shapes */
+.App::before {
+  content: '';
+  position: fixed;
+  top: 10%;
+  right: 5%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 20s ease-in-out infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.App::after {
+  content: '';
+  position: fixed;
+  bottom: 15%;
+  left: 8%;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: floatSlow 25s ease-in-out infinite;
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* Top Navigation */
@@ -271,8 +356,23 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
+  height: 2px;
   background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
+  animation: borderSlide 3s ease-in-out infinite;
+}
+
+@keyframes borderSlide {
+
+  0%,
+  100% {
+    transform: translateX(-10px);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: translateX(10px);
+    opacity: 1;
+  }
 }
 
 .hero-card:hover {
@@ -412,6 +512,33 @@ section {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 2px;
+  animation: expandLine 2s ease-in-out infinite;
+}
+
+@keyframes expandLine {
+
+  0%,
+  100% {
+    width: 60px;
+    opacity: 1;
+  }
+
+  50% {
+    width: 80px;
+    opacity: 0.7;
+  }
 }
 
 .section-sub {
@@ -439,8 +566,25 @@ section {
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
+  height: 2px;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(59, 130, 246, 0.3) 25%,
+      rgba(168, 85, 247, 0.4) 50%,
+      rgba(6, 182, 212, 0.3) 75%,
+      transparent 100%);
+  background-size: 200% 100%;
+  animation: waveGradient 4s linear infinite;
+}
+
+@keyframes waveGradient {
+  0% {
+    background-position: 0% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 .panel:hover {
@@ -573,6 +717,39 @@ section {
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s ease;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  padding: 1px;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg,
+      rgba(59, 130, 246, 0.3),
+      rgba(168, 85, 247, 0.3),
+      rgba(6, 182, 212, 0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: rotateBorder 8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotateBorder {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.card:hover::after {
+  opacity: 0.6;
 }
 
 .card:hover::before {
