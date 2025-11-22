@@ -13,6 +13,9 @@ function App() {
       <Skills />
       <Projects />
       <Contact />
+      <footer className="muted" style={{textAlign:'center', marginTop: 40, padding: '14px 0'}}>
+        {new Date().getFullYear()} Atul Sharma. Built with React.
+      </footer>
     </div>
   );
 }
