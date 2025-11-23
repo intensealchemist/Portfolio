@@ -4,11 +4,13 @@ import Skills from '@/components/Skills';
 import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
 import ScrollProgress from '@/components/ScrollProgress';
+import Reveal from '@/components/Reveal';
 
 export default function Home() {
   return (
     <main className="app-container">
       <ScrollProgress />
+      <Reveal />
       <Header />
       <About />
       <Skills />

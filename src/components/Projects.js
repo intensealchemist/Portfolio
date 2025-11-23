@@ -8,7 +8,7 @@ const Projects = () => {
       <h2 className="section-title">Projects</h2>
       <p className="section-sub">A selection of things I’ve built and shipped.</p>
       <div className="grid">
-        <article className="card">
+        <article className="card" data-reveal>
           <div className="meta">Jan 2024 – Mar 2024</div>
           <h3>Virtual Classroom Platform</h3>
           <p>Online classroom with course management, assignments, and real-time updates.</p>
@@ -23,7 +23,7 @@ const Projects = () => {
           </div>
         </article>
 
-        <article className="card">
+        <article className="card" data-reveal>
           <div className="meta">2024</div>
           <h3>Book Summarizer & Recommender</h3>
           <p>AI-powered summaries and personalized recommendations.</p>
@@ -38,7 +38,7 @@ const Projects = () => {
           </div>
         </article>
 
-        <article className="card">
+        <article className="card" data-reveal>
           <div className="meta">2024</div>
           <h3>CodeAssist</h3>
           <p>AI Coding Assistant integrating Mistral 7B (4-bit), Gemini 1.5 Pro, and a Django/React stack.</p>
@@ -53,7 +53,7 @@ const Projects = () => {
           </div>
         </article>
 
-        <article className="card">
+        <article className="card" data-reveal>
           <div className="meta">2023</div>
           <h3>Discord Chess Bot</h3>
           <p>Play chess in Discord powered by Stockfish API.</p>

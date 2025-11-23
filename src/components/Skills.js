@@ -5,7 +5,7 @@ const Skills = () => {
     <section id="skills">
       <h2 className="section-title">Technical Skills</h2>
       <p className="section-sub">Tools and technologies I use regularly.</p>
-      <div className="panel">
+      <div className="panel" data-reveal>
         <div style={{display:'grid', gap:16}}>
           <div>
             <div className="muted" style={{marginBottom:8}}>Programming Languages</div>
